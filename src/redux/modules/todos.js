@@ -99,6 +99,11 @@ const todosSlice = createSlice({
   initialState,
   reducers: {
     addTodo: (state, action) => {
+      // 불변성을 유지시켜야 한다.
+      // return [...state, action.payload];
+      // redux toolkit 안에 immer 라는 기능이 내장되어 있기 때문에
+      // state.push(action.payload);
+      // 를 사용할 수 있다.
       return [...state, action.payload];
     },
     removeTodo: (state, action) => {
